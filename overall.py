@@ -18,7 +18,8 @@ while(1):
 	num1 = 0
 	num2 = 0
 	moviename = ""
-	print("Movies: " + s.get_names() + "Genres: " + s.get_genres())
+	#print("Movies: " + s.get_names() + "Genres: " + s.get_genres())
+	print("Movies: " + s.get_names() + "Genres: Family\t\t\tHorror\tComedy\t\tDrama\t\t\tSci-Fi\t\t\tRomantic Comedy")
 	while(response.upper() != "A" and response.upper() != "B" and response.upper() != "C" and response.upper() != "D"):
 		response = input("What would you like to do? \n A: Watch a specific movie at a specific time\n B: Watch a specific Genre\n C: Avoid a Specific Genre\n D: Watch anything within a specific time range\n\n Enter the appropriate letter: ")
 	person_name = input("Enter your name: ")
@@ -52,12 +53,12 @@ while(1):
 			num2 = int(input("Enter the ending time in your range that you're looking for (military hours): "))
 		except ValueError:
 			print("bad input. Try again.")
-
 		s = SpecTimeSchedule()
 		print(s.schedule(person_name, num1, num2))
 
 
-
+	if(input("Do you want to print the schedules out so far? Type Y for yes, anything else if you don't: ").lower() == 'y'):
+		s.print_theaters()
 
 	response = input("Do you want to quit? Type Q if you do, anything else if you don't: ")
 	if(response == "Q" or response == "q"):
